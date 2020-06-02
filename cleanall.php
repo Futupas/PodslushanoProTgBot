@@ -1,10 +1,10 @@
 <?php
     function clean_table($table_name) {
         $dbconn = pg_connect(
-            "host=ec2-176-34-97-213.eu-west-1.compute.amazonaws.com 
-            dbname=dqgjdn987m200 
-            user=umsfvokedwaxub 
-            password=c543a242bf844d0c09479beb46bd448e9c88f3ac0146705c9c4020593d26bf6f 
+            "host=ec2-54-246-85-151.eu-west-1.compute.amazonaws.com 
+            dbname=d8nilnb6mk38pt 
+            user=voqikmunsqssqs 
+            password=9fc79459fcaf28e056d6f0438c9fb09540ea492cb43dc007ffa291505b0cae2a 
             port=5432")
                 or die('Не удалось соединиться: ' . pg_last_error());
             $query = "DELETE FROM \"$table_name\" WHERE true";
