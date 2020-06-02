@@ -25,8 +25,8 @@ function handle_callback($json_message) {
             $user_executor = get_user($executor_id);
             $user_customer = get_user($order['customer_id']);
 
-            SendMessageWithMarkdown($customer_id, "[Нажмите на эту ссылку](https://t.me/podslushanoprochatbot?start=".$order['id'].") для общения с исполнителем заказа [\"".$order['name']."\"](https://t.me/podslushanoprochannel/".$order['post_id'].") (его зовут ".$user_executor['name'].")");
-            SendMessageWithMarkdown($executor_id, "[Нажмите на эту ссылку](https://t.me/podslushanoprochatbot?start=".$order['id'].") для общения с заказчиком заказа [\"".$order['name']."\"](https://t.me/podslushanoprochannel/".$order['post_id'].") (его зовут ".$user_customer['name'].")");
+            SendMessageWithMarkdown($customer_id, "[Нажмите на эту ссылку](https://t.me/podslushanoprochatbot?start=".$order['id'].") для общения с исполнителем заказа [\"".$order['name']."\"](https://t.me/podslushanopro/".$order['post_id'].") (его зовут ".$user_executor['name'].")");
+            SendMessageWithMarkdown($executor_id, "[Нажмите на эту ссылку](https://t.me/podslushanoprochatbot?start=".$order['id'].") для общения с заказчиком заказа [\"".$order['name']."\"](https://t.me/podslushanopro/".$order['post_id'].") (его зовут ".$user_customer['name'].")");
 
 
             $file = "";
