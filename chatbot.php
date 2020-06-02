@@ -304,7 +304,7 @@
                                 //     'https://api.telegram.org/bot'.getenv('chat_bot_token').'/sendInvoice?'.http_build_query($data_to_send, '', '&')
                                 // ));
                                 $data_to_send->chat_id = $order['customer_id'];
-                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.01, 2).' грн на карту `'.getenv('admin_card_mono').'` (монобанк) или `'.getenv('admin_card_privat').'` (приватбанк) с комментарием "'.$order['id'].'", после чего нажмите "Прислал", дабы админы могли это подтвердить';
+                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.01, 2).' грн на карту `'.getenv('admin_card_privat').'` с комментарием "'.$order['id'].'", после чего нажмите "Прислал", дабы админы могли это подтвердить';
                                 $data_to_send->parse_mode = 'markdown';
                                 $data_to_send->disable_web_page_preview = true;
                                 $data_to_send->reply_markup = json_encode((object)(array(
@@ -343,7 +343,7 @@
                                 //     'https://api.telegram.org/bot'.getenv('chat_bot_token').'/sendInvoice?'.http_build_query($data_to_send, '', '&')
                                 // ));
                                 $data_to_send->chat_id = $order['customer_id'];
-                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.01, 2).' грн на карту `'.getenv('admin_card_mono').'` (монобанк) или `'.getenv('admin_card_privat').'` (приватбанк) с комментарием "'.$order['id'].'", после чего нажмите "Прислал", дабы админы могли это подтвердить';
+                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.01, 2).' грн на карту `'.getenv('admin_card_privat').'` с комментарием "'.$order['id'].'", после чего нажмите "Прислал", дабы админы могли это подтвердить';
                                 $data_to_send->parse_mode = 'markdown';
                                 $data_to_send->disable_web_page_preview = true;
                                 $data_to_send->reply_markup = json_encode((object)(array(
