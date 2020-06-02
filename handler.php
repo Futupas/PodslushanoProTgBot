@@ -21,13 +21,13 @@ function handle($json_message) {
         //check for user 
         $user = get_user($msg_chatid);
         if ($user === false) {
-            SendMessage($msg_chatid, "Это наш Подслушано бот, через него вы можете сделать заказ, который будет размещен на канале.
+            SendMessage($msg_chatid, "Это наш PodslushanoProBot, через него вы можете сделать заказ, который будет размещен на канале.
 Что бы зарегистрироваться, введите своё имя");
             add_user_to_db($msg_chatid);
             set_user_step($msg_chatid, 5);
             exit(0);
         } else if ($user['name'] == null && $user['step'] != 5 && $user['step'] != 6) {
-            SendMessage($msg_chatid, "Это наш Подслушано бот, через него Вы можете сделать заказ, который будет размещен на канале. Пройдите регистрацию чтобы иметь доступ к рейтингам. Таким образом вы будете повышать доверие к себе среди пользователей.\nПожалуйста, введите свое имя");
+            SendMessage($msg_chatid, "Это наш PodslushanoProBot, через него Вы можете сделать заказ, который будет размещен на канале. Пройдите регистрацию чтобы иметь доступ к рейтингам. Таким образом вы будете повышать доверие к себе среди пользователей.\nПожалуйста, введите свое имя");
             add_user_to_db($msg_chatid);
             set_user_step($msg_chatid, 5);
             exit(0);
@@ -147,7 +147,7 @@ function handle($json_message) {
                     }
                     change_order($order_id, 'description', "'$msg'");
                     set_user_step($msg_chatid, 3);
-                    SendMessage($msg_chatid, 'Введите цену заказа указывая валюту. (минимальная цена - 30 грн). Также можете указать что цена договорная');
+                    SendMessage($msg_chatid, 'Введите цену заказа указывая валюту. (минимальная цена - 30 руб). Также можете указать что цена договорная');
                     break;
                 case 3:
                     if ($msg_len < 1 || $msg_len > 16) {
