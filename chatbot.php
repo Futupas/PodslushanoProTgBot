@@ -219,7 +219,7 @@
                         'https://api.telegram.org/bot'.getenv('chat_bot_token').'/sendMessage?'.http_build_query($data_to_send, '', '&')
                     ));
                     add_row_to_chat_messages_table($user_id, $response->result->message_id, $order['customer_id'], $choise_data);
-                    SendMessageToChatBot($order['customer_id'], "Решала ($executor_name, заказ \"".$order['name']."\") зашёл в чат", $order);
+                    SendMessageToChatBot($order['customer_id'], "Исполнитель ($executor_name, заказ \"".$order['name']."\") зашёл в чат", $order);
                 } else {
                     SendMessageToChatBotWithNoOrder($msg_chatid, 'Нельзя использовать этот бот без заказа');
                     exit(0);
