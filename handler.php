@@ -253,7 +253,7 @@ function handle($json_message) {
                     if ($line['file_id'] != null) $file = "[ ](https://t.me/podslushanopromedia/".$line['file_id'].")";
 
 $text = 
-"🔵 Активно
+"🔴 Активно
 
 *".$line['name']."*
 
