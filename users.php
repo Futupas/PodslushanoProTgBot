@@ -137,19 +137,20 @@ function delete_order($order_id) {
     
 
     $file = "";
-    if ($order['file_id'] != null) $file = "[.](https://t.me/reshalymedia/".$order['file_id'].")";
+    if ($order['file_id'] != null) $file = "[ ](https://t.me/podslushanopromedia/".$order['file_id'].")";
     $data_to_send = new stdClass;
-    $data_to_send->chat_id = -1001271762698;
+    $data_to_send->chat_id = -1001170428368;
     $data_to_send->message_id = $order['post_id'];
     $data_to_send->text =
-"🟢Выполнен
+"🟢 Выполнен
 
 *".$order['name']."*
 
 ".$order['description']."
 
 Цена: ".$order['price']."
-Рейтинг заказчика: ".round($customer['rating'], 1)."/5$file";
+Рейтинг заказчика: ".round($customer['rating'], 1)."/5$file
+#защищенныйпост";
     $data_to_send->parse_mode = 'markdown';
     $data_to_send->disable_web_page_preview = false;
     $data_to_send->reply_markup = '';
@@ -241,27 +242,28 @@ function publish_order($order_id) {
 
 
     $file = "";
-    if ($line['file_id'] != null) $file = "[.](https://t.me/reshalymedia/".$line['file_id'].")";
+    if ($line['file_id'] != null) $file = "[ ](https://t.me/podslushanopromedia/".$line['file_id'].")";
 
     $text = 
-"🔵Активно
+"🔵 Активно
 
 *".$line['name']."*
 
 ".$line['description']."
 
 Цена: ".$line['price']."
-Рейтинг заказчика: ".round($customer['rating'], 1)."/5$file";
+Рейтинг заказчика: ".round($customer['rating'], 1)."/5$file
+#защищенныйпост";
 
     $data_to_send = new stdClass;
-    $data_to_send->chat_id = -1001271762698;
+    $data_to_send->chat_id = -1001170428368;
     $data_to_send->text = $text;
     $data_to_send->parse_mode = 'markdown';
     $data_to_send->disable_web_page_preview = false;
     $data_to_send->reply_markup = json_encode((object)(array(
         'inline_keyboard' => array(array((object)(array(
             'text' => 'Беру 🤝',
-            'url' => 'https://t.me/reshalybot?start='.$line['id']
+            'url' => 'https://t.me/podslushanoprobot?start='.$line['id']
         ))))
     )));
 

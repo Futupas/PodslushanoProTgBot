@@ -157,18 +157,18 @@
             //check for user
             $user = get_user($msg_chatid);
             if ($user === false) {
-                SendMessageToChatBotWithNoOrder($msg_chatid, 'Вы не зарегистрированы. Напишите @reshalybot чтобы сделать это');
+                SendMessageToChatBotWithNoOrder($msg_chatid, 'Вы не зарегистрированы. Напишите @podslushanoprobot чтобы сделать это');
                 exit(0);
             } else if ($user['name'] == null && $user['step'] != 5 && $user['step'] != 6) {
-                SendMessageToChatBotWithNoOrder($msg_chatid, 'Вы не зарегистрированы. Напишите @reshalybot чтобы сделать это');
+                SendMessageToChatBotWithNoOrder($msg_chatid, 'Вы не зарегистрированы. Напишите @podslushanoprobot чтобы сделать это');
                 exit(0);
             } else if ($user['univ'] == null && $user['step'] != 5 && $user['step'] != 6) {
-                SendMessageToChatBotWithNoOrder($msg_chatid, 'Вы не зарегистрированы. Напишите @reshalybot чтобы сделать это');
+                SendMessageToChatBotWithNoOrder($msg_chatid, 'Вы не зарегистрированы. Напишите @podslushanoprobot чтобы сделать это');
                 exit(0);
             }
 
             if ($msg == '/start') {
-                SendMessageToChatBotWithNoOrder($msg_chatid, 'Хорошо, но сначала напишите @reshalybot чтобы сделать это');
+                SendMessageToChatBotWithNoOrder($msg_chatid, 'Хорошо, но сначала напишите @podslushanoprobot чтобы сделать это');
             } else if (strpos($msg, '/start') === 0) {
                 $choise_data = explode(" ", $msg)[1]; // id of order he's taking
                 $user_id = $msg_chatid;

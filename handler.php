@@ -57,7 +57,7 @@ function handle($json_message) {
             }
             
             $user_executor = get_user($user_id);
-            $text = $user_executor['name']." (рейтинг: ".round($user_executor['rating'], 1)."/5) хочет взяться за ваш заказ [\"".$order['name']."\"](https://t.me/reshalychannel/".$order['post_id'].").";
+            $text = $user_executor['name']." (рейтинг: ".round($user_executor['rating'], 1)."/5) хочет взяться за ваш заказ [\"".$order['name']."\"](https://t.me/podslushanoprochannel/".$order['post_id'].").";
             $data_to_send = new stdClass;
             $data_to_send->chat_id = $order['customer_id'];
             $data_to_send->text = $text;
@@ -99,13 +99,13 @@ function handle($json_message) {
             if ($my_orders_as_executor !== false) {
                 $text .= "Я исполнитель в заказах: \n";
                 foreach ($my_orders_as_executor as $line) {
-                    $text .= "[".$line['name']."](https://t.me/reshalychannel/".$line['post_id'].")\n";
+                    $text .= "[".$line['name']."](https://t.me/podslushanoprochannel/".$line['post_id'].")\n";
                 }
             }
             if ($my_orders_as_customer !== false) {
                 $text .= "Я заказчик в заказах: \n";
                 foreach ($my_orders_as_customer as $line) {
-                    $text .= "[".$line['name']."](https://t.me/reshalychannel/".$line['post_id'].")\n";
+                    $text .= "[".$line['name']."](https://t.me/podslushanoprochannel/".$line['post_id'].")\n";
                 }
             }
 
@@ -173,7 +173,7 @@ function handle($json_message) {
                             
                             $data_to_send = new stdClass;
                             $data_to_send->chat_id = $msg_chatid;
-                            $data_to_send->text = "[Ваш заказ](https://t.me/reshalychannel/$post_id) был успешно опубликован";
+                            $data_to_send->text = "[Ваш заказ](https://t.me/podslushanoprochannel/$post_id) был успешно опубликован";
                             $data_to_send->parse_mode = 'markdown';
                             $data_to_send->disable_web_page_preview = true;
                             $data_to_send->reply_markup = json_encode((object)(array(
@@ -228,7 +228,7 @@ function handle($json_message) {
 
 
                         $data_to_send = new stdClass;
-                        $data_to_send->chat_id = "@reshalymedia";
+                        $data_to_send->chat_id = "@podslushanopromedia";
                         $data_to_send->document = $file_id;
                         $response = (object)json_decode(file_get_contents(
                             'https://api.telegram.org/bot'.getenv('bot_token').'/sendDocument?'.http_build_query($data_to_send, '', '&')
@@ -250,17 +250,18 @@ function handle($json_message) {
                     $line = get_order($order_id);
 
                     $file = "";
-                    if ($line['file_id'] != null) $file = "[.](https://t.me/reshalymedia/".$line['file_id'].")";
+                    if ($line['file_id'] != null) $file = "[ ](https://t.me/podslushanopromedia/".$line['file_id'].")";
 
 $text = 
-"🔵Активно
+"🔵 Активно
 
 *".$line['name']."*
 
 ".$line['description']."
 
 Цена: ".$line['price']."
-Рейтинг заказчика: ".round($user['rating'], 1)."/5$file";
+Рейтинг заказчика: ".round($user['rating'], 1)."/5$file
+#защищенныйпост";
                     $data_to_send = new stdClass;
                         $data_to_send->chat_id = $msg_chatid;
                         $data_to_send->text = $text;

@@ -7,7 +7,7 @@ function handle_callback($json_message) {
     $choise_data = $json_message->callback_query->data;
     $msg_id = $json_message->callback_query->message->message_id;
 
-    if ($msg_chatid == -1001271762698) { //order
+    if ($msg_chatid == -1001170428368) { //order
     } else { //allow
         $customer_id = $msg_chatid;
         $executor_id = explode("/", $choise_data)[0];
@@ -25,25 +25,26 @@ function handle_callback($json_message) {
             $user_executor = get_user($executor_id);
             $user_customer = get_user($order['customer_id']);
 
-            SendMessageWithMarkdown($customer_id, "[Нажмите на эту ссылку](https://t.me/reshalychatbot?start=".$order['id'].") для общения с исполнителем заказа [\"".$order['name']."\"](https://t.me/reshalychannel/".$order['post_id'].") (его зовут ".$user_executor['name'].")");
-            SendMessageWithMarkdown($executor_id, "[Нажмите на эту ссылку](https://t.me/reshalychatbot?start=".$order['id'].") для общения с заказчиком заказа [\"".$order['name']."\"](https://t.me/reshalychannel/".$order['post_id'].") (его зовут ".$user_customer['name'].")");
+            SendMessageWithMarkdown($customer_id, "[Нажмите на эту ссылку](https://t.me/podslushanoprochatbot?start=".$order['id'].") для общения с исполнителем заказа [\"".$order['name']."\"](https://t.me/podslushanoprochannel/".$order['post_id'].") (его зовут ".$user_executor['name'].")");
+            SendMessageWithMarkdown($executor_id, "[Нажмите на эту ссылку](https://t.me/podslushanoprochatbot?start=".$order['id'].") для общения с заказчиком заказа [\"".$order['name']."\"](https://t.me/podslushanoprochannel/".$order['post_id'].") (его зовут ".$user_customer['name'].")");
 
 
             $file = "";
-            if ($order['file_id'] != null) $file = "[.](https://t.me/reshalymedia/".$order['file_id'].")";
+            if ($order['file_id'] != null) $file = "[ ](https://t.me/podslushanopromedia/".$order['file_id'].")";
 
                 $data_to_send = new stdClass;
-                $data_to_send->chat_id = -1001271762698;
+                $data_to_send->chat_id = '@PodslushanoPro';
                 $data_to_send->message_id = $order['post_id'];
                 $data_to_send->text =
-"🟡Выполняется
+"🟡 Выполняется
 
 *".$order['name']."*
 
 ".$order['description']."
 
 Цена: ".$order['price']."$file
-Рейтинг заказчика: ".round($user_customer['rating'], 1)."/5";
+Рейтинг заказчика: ".round($user_customer['rating'], 1)."/5
+#защищенныйпост";
                 $data_to_send->parse_mode = 'markdown';
                 $data_to_send->disable_web_page_preview = false;
                 $data_to_send->reply_markup = '';
