@@ -1,0 +1,35 @@
+[02-May-2020 10:28:00 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;TABLE&quot;
+LINE 1: DELETE TABLE &quot;Table1&quot;
+               ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 22
+[02-May-2020 11:18:16 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;SERIAL&quot;
+LINE 2:     &quot;id&quot; int not null SERIAL PRIMARY KEY, 
+                              ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 29
+[02-May-2020 11:18:40 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;SERIAL&quot;
+LINE 2:     &quot;id&quot; int SERIAL PRIMARY KEY, 
+                     ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 29
+[02-May-2020 12:48:24 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: DELETE FROM &quot;users&quot; where 1
+                                  ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 22
+[05-May-2020 22:14:42 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;&amp;&quot;
+LINE 1: UPDATE users SET &amp;quot;name&amp;quot;=&amp;quot;alex&amp;quot; WHERE &amp;qu...
+                         ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 22
+[05-May-2020 22:22:41 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;varchar&quot;
+LINE 1: alter table orders alter column price varchar(32) null defau...
+                                              ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 22
+[05-May-2020 22:23:35 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;null&quot;
+LINE 1: ... table orders alter column price type varchar(32) null defau...
+                                                             ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 22
+[07-May-2020 21:28:33 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  column &quot;customer_done&quot; of relation &quot;orders&quot; already exists in C:\PROJECTS\ReshalyBot\postgretest.php on line 22
+[19-May-2020 18:24:15 UTC] PHP Notice:  Undefined variable: msg in C:\PROJECTS\ReshalyBot\phptest.php on line 3
+[19-May-2020 18:24:15 UTC] PHP Notice:  Undefined variable: msg in C:\PROJECTS\ReshalyBot\phptest.php on line 3
+[24-May-2020 13:37:48 UTC] PHP Warning:  pg_query(): Query failed: ERROR:  syntax error at or near &quot;real&quot;
+LINE 1: ALTER TABLE users ALTER COLUMN rating real not null default ...
+                                              ^ in C:\PROJECTS\ReshalyBot\postgretest.php on line 25
+[26-May-2020 19:36:58 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in C:\PROJECTS\ReshalyBot\phptest.php on line 12
+[26-May-2020 19:36:58 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in C:\PROJECTS\ReshalyBot\phptest.php on line 12
+[26-May-2020 19:36:58 UTC] PHP Warning:  file_get_contents(https://api.telegram.org/bot/sendPhoto?chat_id=387489833&amp;photo=AgACAgIAAxkBAAIFyV7NaRAUb8CQbpeGnjKxK3iDAAEoRQACEq0xG1vicErll9r9ZNvhYr-L5pEuAAMBAAMCAAN5AAPIZwIAARkE&amp;caption=%28%D0%BE%D1%82+dddd%29): failed to open stream: operation failed in C:\PROJECTS\ReshalyBot\phptest.php on line 12
+[26-May-2020 19:37:57 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in C:\PROJECTS\ReshalyBot\phptest.php on line 12
+[26-May-2020 19:37:57 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in C:\PROJECTS\ReshalyBot\phptest.php on line 12
+[26-May-2020 19:37:57 UTC] PHP Warning:  file_get_contents(https://api.telegram.org/bot1243741795:AAFVGzJKCfn17nT7B6mvbYTUE9yZQybYoMI/sendPhoto?chat_id=387489833&amp;photo=AgACAgIAAxkBAAIFyV7NaRAUb8CQbpeGnjKxK3iDAAEoRQACEq0xG1vicErll9r9ZNvhYr-L5pEuAAMBAAMCAAN5AAPIZwIAARkE&amp;caption=%28%D0%BE%D1%82+dddd%29): failed to open stream: operation failed in C:\PROJECTS\ReshalyBot\phptest.php on line 12
