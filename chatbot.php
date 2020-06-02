@@ -8,7 +8,6 @@
         $requestString = file_get_contents('php://input');
         $json_message = (object)json_decode($requestString);
         add_log($requestString);
-        exit(0);
 
         // if (property_exists($json_message, 'pre_checkout_query')) {
         //     $order_id = $json_message->pre_checkout_query->invoice_payload;
