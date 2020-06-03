@@ -142,7 +142,7 @@ function delete_order($order_id) {
     $data_to_send->chat_id = -1001170428368;
     $data_to_send->message_id = $order['post_id'];
     $data_to_send->text =
-"✅ Завершено
+"✅ Выполнен
 
 *".$order['name']."*
 
