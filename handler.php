@@ -147,7 +147,7 @@ function handle($json_message) {
                     }
                     change_order($order_id, 'description', "'$msg'");
                     set_user_step($msg_chatid, 3);
-                    SendMessage($msg_chatid, 'Введите цену заказа указывая валюту. (минимальная цена - 30 руб). Также можете указать что цена договорная');
+                    SendMessage($msg_chatid, 'Введите цену заказа указывая валюту. (минимальная цена - 50 руб). Также можете указать что цена договорная');
                     break;
                 case 3:
                     if ($msg_len < 1 || $msg_len > 16) {
@@ -261,7 +261,7 @@ $text =
 
 Цена: ".$line['price']."
 Рейтинг заказчика: ".round($user['rating'], 1)."/5$file
-#защищенныйпост";
+#БезопасныйПост";
                     $data_to_send = new stdClass;
                         $data_to_send->chat_id = $msg_chatid;
                         $data_to_send->text = $text;

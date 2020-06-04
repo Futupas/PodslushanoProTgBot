@@ -150,7 +150,7 @@ function delete_order($order_id) {
 
 Цена: ".$order['price']."
 Рейтинг заказчика: ".round($customer['rating'], 1)."/5$file
-#защищенныйпост";
+#БезопасныйПост";
     $data_to_send->parse_mode = 'markdown';
     $data_to_send->disable_web_page_preview = false;
     $data_to_send->reply_markup = '';
@@ -253,7 +253,7 @@ function publish_order($order_id) {
 
 Цена: ".$line['price']."
 Рейтинг заказчика: ".round($customer['rating'], 1)."/5$file
-#защищенныйпост";
+#БезопасныйПост";
 
     $data_to_send = new stdClass;
     $data_to_send->chat_id = -1001170428368;
