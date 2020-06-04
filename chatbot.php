@@ -73,7 +73,7 @@
                 $order_id = substr($choise_data, 2, strlen($choise_data)-2);
                 $order = get_order($order_id);
                 $response = SendMessageToChatBot('e', 'Вы можете приступить к выполнению заказа ('.$order['name'].') ибо заказчик уже оплатил его', $order);
-                $response = SendMessageToChatBot('c', 'Исполнитель заказа '.$order['name'].' получил сообщение, что может приступать к работе', $order);
+                $response = SendMessageToChatBot('c', 'Решала заказа '.$order['name'].' получил сообщение, что может приступать к работе', $order);
     
 
                 file_get_contents('https://api.telegram.org/bot'.getenv('chat_bot_token').'/editMessageReplyMarkup?'.
@@ -114,7 +114,7 @@
                 set_user_step($order['customer_id'], 9);
                 $data_to_send = new stdClass;
                 $data_to_send->chat_id = $order['customer_id'];
-                $data_to_send->text = "Оцените, пожалуйста, исполнителя заказа (1 - очень плохо, 5 - очень хорошо)";
+                $data_to_send->text = "Оцените, пожалуйста, решалу заказа (1 - очень плохо, 5 - очень хорошо)";
                 $data_to_send->reply_markup = json_encode((object)(array(
                     'keyboard' => array(array("1", "2", "3", "4", "5"))
                 )));
@@ -187,7 +187,7 @@
                     $text = "[ ](https://i.ibb.co/bHwxyBd/photo-2020-06-03-22-09-39.jpg) Вы в анонимном чате с $executor_name по заказу “".$order['name']."”. 
 - Для общения  каждый раз отправляйте текст используя функцию “Ответить” (СВАЙП сообщения влево) на сообщение вашего собеседника (ИЛИ НА ЭТО СООБЩЕНИЕ).
 - Когда цена согласована, ответьте на сообщение собеседника /price и введите сумму (Например /price 100) и после подтверждения цены собеседником следуйте дальнейшим указаниям. 
-- После успешного выполнения задания, ответьте на сообщение собеседника (/done) и сделка будет закрыта, после чего деньги будут перечислены исполнителю. 
+- После успешного выполнения задания, ответьте на сообщение собеседника (/done) и сделка будет закрыта, после чего деньги будут перечислены решале. 
 ВАЖНО! Для отправки сообщений используйте функцию “Ответить” (Свайп сообщения влево).
 Полная инструкция: [тыц](https://telegra.ph/Gajd-po-platforme-Podslushano-06-03)
 ";
@@ -206,7 +206,7 @@
                     $text = "[ ](https://i.ibb.co/bHwxyBd/photo-2020-06-03-22-09-39.jpg) Вы в анонимном чате с $customer_name по заказу “".$order['name']."”. 
 - Для общения  каждый раз отправляйте текст используя функцию “Ответить” (СВАЙП сообщения влево) на сообщение вашего собеседника (ИЛИ НА ЭТО СООБЩЕНИЕ).
 - Когда цена согласована, ответьте на сообщение собеседника /price и введите сумму (Например /price 100) и после подтверждения цены собеседником следуйте дальнейшим указаниям. 
-- После успешного выполнения задания, ответьте на сообщение собеседника (/done) и сделка будет закрыта, после чего деньги будут перечислены исполнителю. 
+- После успешного выполнения задания, ответьте на сообщение собеседника (/done) и сделка будет закрыта, после чего деньги будут перечислены решале. 
 ВАЖНО! Для отправки сообщений используйте функцию “Ответить” (Свайп сообщения влево).
 Полная инструкция: [тыц](https://telegra.ph/Gajd-po-platforme-Podslushano-06-03)
 ";                    $data_to_send = new stdClass;
@@ -218,7 +218,7 @@
                         'https://api.telegram.org/bot'.getenv('chat_bot_token').'/sendMessage?'.http_build_query($data_to_send, '', '&')
                     ));
                     add_row_to_chat_messages_table($user_id, $response->result->message_id, $order['customer_id'], $choise_data);
-                    SendMessageToChatBot($order['customer_id'], "Исполнитель ($executor_name, заказ \"".$order['name']."\") зашёл в чат", $order);
+                    SendMessageToChatBot($order['customer_id'], "Решала ($executor_name, заказ \"".$order['name']."\") зашёл в чат", $order);
                 } else {
                     SendMessageToChatBotWithNoOrder($msg_chatid, 'Нельзя использовать этот бот без заказа');
                     exit(0);
@@ -253,7 +253,7 @@
                                 $response = SendMessageToChatBot("c", "Заказ \"$order_name\" закрыт", $order);
                                 $response = SendMessageToChatBot("e", "Заказ \"$order_name\" закрыт. Пришлите мне сообщение в формате /card 4242424242424242 чтобы получить свои деньги", $order);
                             } else {
-                                $response = SendMessageToChatBot("c", "Ждём пока исполнитель тоже закроет заказ \"$order_name\"", $order);
+                                $response = SendMessageToChatBot("c", "Ждём пока решала тоже закроет заказ \"$order_name\"", $order);
                                 $response = SendMessageToChatBot("e", "Заказчик ($customer_name, заказ \"$order_name\") предложил закрыть заказ. Пришлите мне /done чтобы подтвердить это", $order);
                             }
                             exit(0);
@@ -266,7 +266,7 @@
                             } else {
                                 $response = SendMessageToChatBot("e", "Ждём пока заказчик тоже закроет заказ \"$order_name\"", $order);
 
-                                $response = SendMessageToChatBot("c", "Исполнитель ($executor_name, заказ \"$order_name\") предложил закрыть заказ. Пришлите мне /done чтобы подтвердить это", $order);
+                                $response = SendMessageToChatBot("c", "Решала ($executor_name, заказ \"$order_name\") предложил закрыть заказ. Пришлите мне /done чтобы подтвердить это", $order);
                             }
                             exit(0);
                         } else {
@@ -319,7 +319,7 @@
                                 add_row_to_chat_messages_table($msg_chatid, $response->result->message_id, ($msg_chatid == $order['customer_id'] ? $order['executor_id'] : $order['customer_id']), $order['id']);
                                 $response = SendMessageToChatBot('e', 'Цена была подтверждена, ждите сообщения', $order);
                             } else {
-                                $response = SendMessageToChatBot('c', 'Твоя цена была установлена, ждём, когда исполнитель её подтвердит', $order);
+                                $response = SendMessageToChatBot('c', 'Твоя цена была установлена, ждём, когда решала её подтвердит', $order);
                                 $response = SendMessageToChatBot('e', "Заказчик ($customer_name, заказ \"$order_name\") предложил цену ".$price.' руб', $order);
                             }
                             exit(0);
@@ -359,7 +359,7 @@
                                 $response = SendMessageToChatBot('e', 'Цена была подтверждена, ждите сообщения', $order);
                             } else {
                                 $response = SendMessageToChatBot('e', 'Ваша цена была установлена, ждём, когда заказчик её подтвердит', $order);
-                                $response = SendMessageToChatBot('c', "Исполнитель ($executor_name, заказ \"$order_name\") предложил цену ".$price.' руб', $order);
+                                $response = SendMessageToChatBot('c', "Решала ($executor_name, заказ \"$order_name\") предложил цену ".$price.' руб', $order);
                             }
                             exit(0);
                         } else {
@@ -377,7 +377,7 @@
                         }
 
                         if ($msg_chatid == $order['customer_id']) {
-                            $response = SendMessageToChatBot('c', 'Вы не исполнитель, чтобы это делать', $order);
+                            $response = SendMessageToChatBot('c', 'Вы не решала, чтобы это делать', $order);
                             exit(0);
                         } else if ($msg_chatid == $order['executor_id']) {
                             $data_to_send = new stdClass;

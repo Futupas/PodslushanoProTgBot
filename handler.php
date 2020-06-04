@@ -52,7 +52,7 @@ function handle($json_message) {
             add_executor_in_table($choise_data, $msg_chatid);
             $order = get_order($choise_data);
             if ($order['customer_id'] == $user_id) {
-                SendMessage($msg_chatid, 'Нельзя быть исполнителем собственного заказа');
+                SendMessage($msg_chatid, 'Нельзя быть решалой собственного заказа');
                 exit(0);
             }
             
@@ -73,7 +73,7 @@ function handle($json_message) {
                 'https://api.telegram.org/bot'.getenv('bot_token').'/sendMessage?'.http_build_query($data_to_send, '', '&')
             );
             SendMessage($msg_chatid, 'Подождите пока заказчик согласится на работу с вами.
-Если сообщение не пришло, это значит что заказчик начал работу с другим исполнителем');
+Если сообщение не пришло, это значит что заказчик начал работу с другим решалой');
         } else if ($msg == '/add_order') {
                 //create order, get its id
                 $order_id = create_order($msg_chatid);
@@ -97,7 +97,7 @@ function handle($json_message) {
             }
 
             if ($my_orders_as_executor !== false) {
-                $text .= "Я исполнитель в заказах: \n";
+                $text .= "Я решала в заказах: \n";
                 foreach ($my_orders_as_executor as $line) {
                     $text .= "[".$line['name']."](https://t.me/podslushanopro/".$line['post_id'].")\n";
                 }
