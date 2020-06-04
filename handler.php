@@ -254,13 +254,13 @@ function handle($json_message) {
 
 $text = 
 "🔴 Активно
-
+$file
 *".$line['name']."*
 
 ".$line['description']."
 
 Цена: ".$line['price']."
-Рейтинг заказчика: ".round($user['rating'], 1)."/5$file
+Рейтинг заказчика: ".round($user['rating'], 1)."/5
 #БезопасныйПост";
                     $data_to_send = new stdClass;
                         $data_to_send->chat_id = $msg_chatid;
