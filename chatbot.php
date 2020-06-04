@@ -280,6 +280,10 @@
                             $response = SendMessageToChatBot($msg_chatid, 'Цена должна быть положительным целым числом', $order);
                             exit(0);
                         }
+                        if ($price < 50) {
+                            $response = SendMessageToChatBot($msg_chatid, 'Цена должна быть не меньше, чем 50 руб', $order);
+                            exit(0);
+                        }
                         if ($order['customer_price'] !== null && $order['customer_price'] === $order['executor_price']) {
                             $response = SendMessageToChatBot($msg_chatid, 'Уже нельзя изменять цену', $order);
                             exit(0);

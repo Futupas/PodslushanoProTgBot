@@ -288,6 +288,9 @@ $file
                 break;
                 case 9: 
                     if ($msg == '1' || $msg == '2' || $msg == '3' || $msg == '4' || $msg == '5') {
+                        change_user_rating($user['current_order_fill'], $msg);
+                        set_user_current_order_fill($msg_chatid, 'NULL');
+                        set_user_step($msg_chatid, 0);
                         $data_to_send = new stdClass;
                         $data_to_send->chat_id = $msg_chatid;
                         $data_to_send->text = 'Спасибо за вашу оценку';
@@ -297,9 +300,6 @@ $file
                         $response = file_get_contents(
                             'https://api.telegram.org/bot'.getenv('bot_token').'/sendMessage?'.http_build_query($data_to_send, '', '&')
                         );
-                        change_user_rating($user['current_order_fill'], $msg);
-                        set_user_current_order_fill($msg_chatid, 'NULL');
-                        set_user_step($msg_chatid, 0);
                     } else {
                         SendMessage($msg_chatid, "Ваша оценка не была учтена");
                         set_user_step($msg_chatid, 0);
