@@ -7,7 +7,7 @@ function handle_callback($json_message) {
     $choise_data = $json_message->callback_query->data;
     $msg_id = $json_message->callback_query->message->message_id;
 
-    if ($msg_chatid == -1001170428368) { //order
+    if ($msg_chatid == -1001185778591) { //order
     } else { //allow
         $customer_id = $msg_chatid;
         $executor_id = explode("/", $choise_data)[0];

@@ -139,7 +139,7 @@ function delete_order($order_id) {
     $file = "";
     if ($order['file_id'] != null) $file = "[ ](https://t.me/podslushanopromedia/".$order['file_id'].")";
     $data_to_send = new stdClass;
-    $data_to_send->chat_id = -1001170428368;
+    $data_to_send->chat_id = -1001185778591;
     $data_to_send->message_id = $order['post_id'];
     $data_to_send->text =
 "✅ Выполнен
@@ -256,7 +256,7 @@ $file
 #БезопасныйПост";
 
     $data_to_send = new stdClass;
-    $data_to_send->chat_id = -1001170428368;
+    $data_to_send->chat_id = -1001185778591;
     $data_to_send->text = $text;
     $data_to_send->parse_mode = 'markdown';
     $data_to_send->disable_web_page_preview = false;
