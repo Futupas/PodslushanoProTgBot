@@ -308,12 +308,12 @@
                                 //     'https://api.telegram.org/bot'.getenv('chat_bot_token').'/sendInvoice?'.http_build_query($data_to_send, '', '&')
                                 // ));
                                 $data_to_send->chat_id = $order['customer_id'];
-                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.015, 2).' руб на карту `'.getenv('admin_card_privat').'` с комментарием "'.$order['id'].'", после чего нажмите "Прислал", дабы админы могли это подтвердить';
+                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.015, 2).' руб на карту `'.getenv('admin_card_privat').'` (сбербанк) с комментарием "'.$order['id'].'", после чего нажмите "Готово", дабы админы могли это подтвердить';
                                 $data_to_send->parse_mode = 'markdown';
                                 $data_to_send->disable_web_page_preview = true;
                                 $data_to_send->reply_markup = json_encode((object)(array(
                                     'inline_keyboard' => array(array((object)(array(
-                                        'text' => 'Прислал',
+                                        'text' => 'Готово',
                                         'callback_data' => 's_'.$order['id']
                                     ))))
                                 )));
@@ -347,12 +347,12 @@
                                 //     'https://api.telegram.org/bot'.getenv('chat_bot_token').'/sendInvoice?'.http_build_query($data_to_send, '', '&')
                                 // ));
                                 $data_to_send->chat_id = $order['customer_id'];
-                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.015, 2).' руб на карту `'.getenv('admin_card_privat').'` с комментарием "'.$order['id'].'", после чего нажмите "Прислал", дабы админы могли это подтвердить';
+                                $data_to_send->text = 'Пришлите, пожалуйста '.round($price*1.015, 2).' руб на карту `'.getenv('admin_card_privat').'` (сбербанк) с комментарием "'.$order['id'].'", после чего нажмите "Готово", дабы админы могли это подтвердить';
                                 $data_to_send->parse_mode = 'markdown';
                                 $data_to_send->disable_web_page_preview = true;
                                 $data_to_send->reply_markup = json_encode((object)(array(
                                     'inline_keyboard' => array(array((object)(array(
-                                        'text' => 'Прислал',
+                                        'text' => 'Готово',
                                         'callback_data' => 's_'.$order['id']
                                     ))))
                                 )));
